@@ -25,8 +25,6 @@ function createBoxes(amount) {
         }
         boxes.innerHTML = markup;
         input.value = "";
-    } else {
-        boxes.innerHTML = "";
     }
 }
 
