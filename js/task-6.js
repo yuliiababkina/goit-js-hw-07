@@ -9,7 +9,9 @@ const btnDestroy = document.querySelector("button[data-destroy]");
 const input = document.querySelector("input");
 const boxes = document.querySelector("#boxes");
 
-btnCreate.addEventListener("click", createBoxes);
+btnCreate.addEventListener("click", function (event) {
+    createBoxes(input.value);
+});
 btnDestroy.addEventListener("click", destroyBoxes);
 
 function createBoxes(amount) {
@@ -17,8 +19,8 @@ function createBoxes(amount) {
     let height = 30;
     let markup = "";
 
-    if (Number(input.value) > 0 && Number(input.value) <= 100) {
-        for (let i = 1; i <= input.value; i++) {
+    if (Number(amount) > 0 && Number(amount) <= 100) {
+        for (let i = 1; i <= amount; i++) {
             markup += `<div style="background-color: ${getRandomHexColor()}; width: ${width}px; height: ${height}px"></div>`;
             width += 10;
             height += 10;
@@ -30,4 +32,5 @@ function createBoxes(amount) {
 
 function destroyBoxes() {
     boxes.innerHTML = "";
+    input.value = "";
 }
